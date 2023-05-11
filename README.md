@@ -29,7 +29,7 @@ const utility = {
 ```
 
 ### view component
-
+---
 The view contains a number of functions that generate HTML elements based on the game state, such as **`getCardElement`**, which generates a **`div`** element representing a card, and **`getCardContent`**, which generates the content for the front face of a card. The **`displayCards`** function is used to display a set of cards, while the **`flipCards`** function is used to flip one or more cards over. Other functions are used to update the score and the number of tries, and to display an animation when the player makes an incorrect match.
 
 ```jsx
@@ -65,15 +65,15 @@ flipCards(...cards) {
 - It sets the inner HTML of the **`card`** element to **`null`**.
 
 ### model component
-
+---
 The model contains an array **`revealedCards`** that holds the cards that have been flipped over, and functions to check whether the cards match and update the score and number of tries.
 
 ### controller component
-
+---
 The controller defines a **`currentState`** variable that keeps track of the current game state, and a **`dispatchCardAction`** function that handles card clicks. When a card is clicked, the **`dispatchCardAction`** function flips the card over and updates the game state. If the cards match, the score is updated and the cards are removed from the board. If the cards do not match, an animation is displayed, and the cards are flipped back over.
 
 ### utility component
-
+---
 Generates an array of random numbers. It uses the [Fisher-Yates algorithm](https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle) to shuffle the numbers in the array randomly.
 
 ```jsx
@@ -97,7 +97,7 @@ It then shuffles the array using the Fisher-Yates shuffle algorithm, which swaps
 The code also defines two constants: **`GAME_STATE`**, which is an object that maps game states to string values, and **`Symbols`**, which is an array of image URLs representing the card symbols.
 
 ### methods
-
+---
 > *The **`Array.from()`** static method creates a new, shallow-copied `Array` instance from an [iterable](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols#the_iterable_protocol) or [array-like](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Indexed_collections#working_with_array-like_objects) object. - [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/from)*
 > 
 
