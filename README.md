@@ -3,8 +3,7 @@
 ![flippingCardGif](https://github.com/DrizztDuncan/Fliping_cards/assets/39251171/657fed18-765f-452c-b564-0dbdee9f1a6b)
 ## Intro
 This is a classic memory card game with a deck of 52 cards.
-![flipCardIdea](https://github.com/DrizztDuncan/Fliping_cards/assets/39251171/230c5cef-5012-4d8b-bac3-bf029a4ac9a5)
-
+![flipCardIdea](https://github.com/DrizztDuncan/Fliping_cards/assets/39251171/75828a06-2375-4812-95bb-a119e7ed289f)
 The code defines three main components: the view, the model, the controller, and the utility.
 
 ```jsx
