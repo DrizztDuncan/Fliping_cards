@@ -162,9 +162,9 @@ dispatchCardAction(card) {
         view.renderTriedTimes(++model.triedTimes);
         view.flipCards(card);
         model.revealedCards.push(card);
-        // 判斷配對是否成功
+        // if them paired
         if (model.isRevealedCardsMatched()) {
-          // 配對成功
+          // paired success
           view.renderScore((model.score += 10));
           this.currentState = GAME_STATE.CardsMatched;
           view.pairCards(...model.revealedCards);
@@ -172,12 +172,12 @@ dispatchCardAction(card) {
           if (model.score === 260) {
             console.log("showGameFinished");
             this.currentState = GAME_STATE.GameFinished;
-            view.showGameFinished(); // 加在這裡
+            view.showGameFinished(); // game ends
             return;
           }
           this.currentState = GAME_STATE.FirstCardAwaits;
         } else {
-          // 配對失敗
+          // pair failed
           this.currentState = GAME_STATE.CardsMatchFailed;
           view.appendWrongAnimation(...model.revealedCards);
           setTimeout(() => {
@@ -186,7 +186,7 @@ dispatchCardAction(card) {
             this.currentState = GAME_STATE.FirstCardAwaits;
           }, 1000);
         }
-        // 判斷配對是否成功
+        // see if pairing success
         break;
     }
     console.log("this.currentState", this.currentState);
