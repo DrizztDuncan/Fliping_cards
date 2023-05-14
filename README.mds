@@ -162,9 +162,9 @@ dispatchCardAction(card) {
         view.renderTriedTimes(++model.triedTimes);
         view.flipCards(card);
         model.revealedCards.push(card);
-        // if them paired
+        // see if it pairs
         if (model.isRevealedCardsMatched()) {
-          // paired success
+          // pair success
           view.renderScore((model.score += 10));
           this.currentState = GAME_STATE.CardsMatched;
           view.pairCards(...model.revealedCards);
@@ -172,7 +172,7 @@ dispatchCardAction(card) {
           if (model.score === 260) {
             console.log("showGameFinished");
             this.currentState = GAME_STATE.GameFinished;
-            view.showGameFinished(); // game ends
+            view.showGameFinished(); // 加在這裡
             return;
           }
           this.currentState = GAME_STATE.FirstCardAwaits;
