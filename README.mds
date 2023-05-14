@@ -1,12 +1,17 @@
-# 🂡 Fliping_cards 🂾
-[_☞☞ demo_](https://codepen.io/drizztduncan/pen/WNgmJVj)
+# 🂡 Flipping_cards 🂾
 
-![flippingCardGif](https://github.com/DrizztDuncan/Fliping_cards/assets/39251171/657fed18-765f-452c-b564-0dbdee9f1a6b)
-## 🤴  Intro
+### [☞☞ demo](https://codepen.io/drizztduncan/pen/WNgmJVj)
+
+## 🤴 Intro
+
+---
+
+![flippingCardGif.gif](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/978a3d1a-c7d6-42a8-87a6-bbb29beb199e/flippingCardGif.gif)
 
 This is a classic memory card game that involves a deck of 52 cards. The application combines state management, the MVC (Model-View-Controller) architecture, CSS animation, JavaScript interaction with CSS, and DOM manipulations.
 
-![flipCardIdea](https://github.com/DrizztDuncan/Fliping_cards/assets/39251171/75828a06-2375-4812-95bb-a119e7ed289f)
+![flipCardIdea.PNG](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/e6fd1465-5ecc-4548-8558-29c4edcf03c1/flipCardIdea.png)
+
 The code defines three main components: the view, the model, the controller. The utility is an additional component for generating an array of random numbers that does not fit into the idea of any MVC components.
 
 ```jsx
@@ -162,9 +167,9 @@ dispatchCardAction(card) {
         view.renderTriedTimes(++model.triedTimes);
         view.flipCards(card);
         model.revealedCards.push(card);
-        // see if it pairs
+        // if them paired
         if (model.isRevealedCardsMatched()) {
-          // pair success
+          // paired success
           view.renderScore((model.score += 10));
           this.currentState = GAME_STATE.CardsMatched;
           view.pairCards(...model.revealedCards);
@@ -172,7 +177,7 @@ dispatchCardAction(card) {
           if (model.score === 260) {
             console.log("showGameFinished");
             this.currentState = GAME_STATE.GameFinished;
-            view.showGameFinished(); // 加在這裡
+            view.showGameFinished(); // game ends
             return;
           }
           this.currentState = GAME_STATE.FirstCardAwaits;
@@ -238,7 +243,7 @@ It then shuffles the array using the Fisher-Yates shuffle algorithm, which swaps
 
 The code also defines two constants: **`GAME_STATE`**, which is an object that maps game states to string values, and **`Symbols`**, which is an array of image URLs representing the card symbols.
 
-### 👸 Notes
+## 👸 Notes
 
 *This paragraph will highlight personally intriguing syntaxes or solutions*
 
@@ -246,11 +251,11 @@ The code also defines two constants: **`GAME_STATE`**, which is an object that m
 
 ### State Management
 
-![MVC](https://github.com/DrizztDuncan/Fliping_cards/assets/39251171/2079d208-17ed-4832-9829-95131567070e)
+![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/9dc0d555-fa0f-4549-b9ef-f6e80fc8d6eb/Untitled.png)
 
 *image source: [docs.flutter.dev](https://docs.flutter.dev/data-and-backend/state-mgmt/declarative)*
 
-![stateManagement](https://github.com/DrizztDuncan/Fliping_cards/assets/39251171/00510576-b8b4-4a00-98d7-1b8f3e5829b3)
+![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/3593588a-4e06-44ed-aaa5-853d59a3ffd7/Untitled.png)
 
 > ***MVC** (Model-View-Controller) is a pattern in software design commonly used to implement user interfaces, data, and controlling logic. It emphasizes a separation between the software's business logic and display. This "separation of concerns" provides for a better division of labor and improved maintenance.*
 > 
@@ -258,7 +263,7 @@ The code also defines two constants: **`GAME_STATE`**, which is an object that m
 > 2. *View: Handles layout and display.*
 > 3. *Controller: Routes commands to the model and view parts.*
 > 
-> *-[MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/switch)*
+> *-[MDN](https://developer.mozilla.org/en-US/docs/Glossary/MVC)*
 > 
 
 ```jsx
