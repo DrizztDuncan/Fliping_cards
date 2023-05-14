@@ -7,10 +7,10 @@ const GAME_STATE = {
 };
 
 const Symbols = [
-  "https://assets-lighthouse.alphacamp.co/uploads/image/file/17989/__.png", // 黑桃
-  "https://assets-lighthouse.alphacamp.co/uploads/image/file/17992/heart.png", // 愛心
-  "https://assets-lighthouse.alphacamp.co/uploads/image/file/17991/diamonds.png", // 方塊
-  "https://assets-lighthouse.alphacamp.co/uploads/image/file/17988/__.png", // 梅花
+  "https://assets-lighthouse.alphacamp.co/uploads/image/file/17989/__.png", // spades 
+  "https://assets-lighthouse.alphacamp.co/uploads/image/file/17992/heart.png", // hearts
+  "https://assets-lighthouse.alphacamp.co/uploads/image/file/17991/diamonds.png", // diamonds 
+  "https://assets-lighthouse.alphacamp.co/uploads/image/file/17988/__.png", // clubs
 ];
 
 const view = {
@@ -125,9 +125,9 @@ const controller = {
         view.renderTriedTimes(++model.triedTimes);
         view.flipCards(card);
         model.revealedCards.push(card);
-        // 判斷配對是否成功
+        // if them paired
         if (model.isRevealedCardsMatched()) {
-          // 配對成功
+          // paired success
           view.renderScore((model.score += 10));
           this.currentState = GAME_STATE.CardsMatched;
           view.pairCards(...model.revealedCards);
@@ -135,12 +135,12 @@ const controller = {
           if (model.score === 260) {
             console.log("showGameFinished");
             this.currentState = GAME_STATE.GameFinished;
-            view.showGameFinished(); // 加在這裡
+            view.showGameFinished(); // game ends
             return;
           }
           this.currentState = GAME_STATE.FirstCardAwaits;
         } else {
-          // 配對失敗
+          // pair failed
           this.currentState = GAME_STATE.CardsMatchFailed;
           view.appendWrongAnimation(...model.revealedCards);
           setTimeout(() => {
@@ -149,9 +149,15 @@ const controller = {
             this.currentState = GAME_STATE.FirstCardAwaits;
           }, 1000);
         }
-        // 判斷配對是否成功
+        // see if pairing success
         break;
     }
+    console.log("this.currentState", this.currentState);
+    console.log(
+      "revealedCards",
+      model.revealedCards.map((card) => card.dataset.index)
+    );
+  },
     console.log("this.currentState", this.currentState);
     console.log(
       "revealedCards",
