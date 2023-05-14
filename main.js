@@ -7,9 +7,9 @@ const GAME_STATE = {
 };
 
 const Symbols = [
-  "https://assets-lighthouse.alphacamp.co/uploads/image/file/17989/__.png", // spades 
+  "https://assets-lighthouse.alphacamp.co/uploads/image/file/17989/__.png", // spades
   "https://assets-lighthouse.alphacamp.co/uploads/image/file/17992/heart.png", // hearts
-  "https://assets-lighthouse.alphacamp.co/uploads/image/file/17991/diamonds.png", // diamonds 
+  "https://assets-lighthouse.alphacamp.co/uploads/image/file/17991/diamonds.png", // diamonds
   "https://assets-lighthouse.alphacamp.co/uploads/image/file/17988/__.png", // clubs
 ];
 
@@ -125,9 +125,9 @@ const controller = {
         view.renderTriedTimes(++model.triedTimes);
         view.flipCards(card);
         model.revealedCards.push(card);
-        // if them paired
+        // see if it pairs
         if (model.isRevealedCardsMatched()) {
-          // paired success
+          // pair success
           view.renderScore((model.score += 10));
           this.currentState = GAME_STATE.CardsMatched;
           view.pairCards(...model.revealedCards);
@@ -135,7 +135,7 @@ const controller = {
           if (model.score === 260) {
             console.log("showGameFinished");
             this.currentState = GAME_STATE.GameFinished;
-            view.showGameFinished(); // game ends
+            view.showGameFinished(); // 加在這裡
             return;
           }
           this.currentState = GAME_STATE.FirstCardAwaits;
@@ -152,12 +152,6 @@ const controller = {
         // see if pairing success
         break;
     }
-    console.log("this.currentState", this.currentState);
-    console.log(
-      "revealedCards",
-      model.revealedCards.map((card) => card.dataset.index)
-    );
-  },
     console.log("this.currentState", this.currentState);
     console.log(
       "revealedCards",
